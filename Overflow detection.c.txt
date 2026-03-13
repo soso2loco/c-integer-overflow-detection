@@ -1,0 +1,43 @@
+/*
+Name: Soleil Brewer
+Class: CSC 3304
+Program: Integer Overflow Detection
+
+Description:
+This program asks the user to enter two integers and calculates their sum.
+After adding the numbers, the program checks whether integer overflow
+occurred during the addition. It determines if a positive overflow or
+negative overflow happened by comparing the signs of the input numbers
+and the resulting sum. The program then prints the result of the addition
+and reports whether an overflow occurred.
+*/
+
+
+#include <stdio.h>
+#include <limits.h>
+
+int main(void) {
+
+    int num1;
+    int num2;
+    int sum;
+
+    printf("Please enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
+
+    sum = num1 + num2;
+
+    printf("%d + %d = %d\n", num1, num2, sum);
+
+    if (num1 > 0 && num2 > 0 && sum < 0) {
+        printf("Positive overflow occurred\n");
+    }
+    else if (num1 < 0 && num2 < 0 && sum > 0) {
+        printf("Negative overflow occurred\n");
+    }
+    else {
+        printf("Overflow did not occur\n");
+    }
+
+    return 0;
+}
